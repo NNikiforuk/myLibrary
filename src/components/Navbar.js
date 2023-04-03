@@ -1,5 +1,5 @@
 import React from "react";
-import "../styles/Navbar.css";
+import "../styles/Navbar.scss";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faBars,
@@ -7,8 +7,9 @@ import {
 	faSignOutAlt,
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
+import NewBook from "./NewBook";
 
-function Navbar() {
+function Navbar(props) {
 	const [isBurgerCollapsed, setIsBurgerCollapsed] = useState(false);
 	const [wantAddBook, setWantAddBook] = useState(false);
 
@@ -16,8 +17,8 @@ function Navbar() {
 		setIsBurgerCollapsed(!isBurgerCollapsed);
 	};
 
-	const toggleAddBook = () => {
-		setWantAddBook(!wantAddBook);
+	const handleChildStateChange = (newState) => {
+		setWantAddBook(newState);
 	};
 
 	return (
@@ -30,7 +31,7 @@ function Navbar() {
 					<FontAwesomeIcon icon={faBars} />
 				</div>
 				<div className={isBurgerCollapsed ? "navbar-menu show" : "navbar-menu"}>
-					<div className="navbar-menu-item" onClick={toggleAddBook}>
+					<div className="navbar-menu-item" onClick={handleChildStateChange}>
 						<FontAwesomeIcon icon={faPlus} />
 						<span>Add book</span>
 					</div>
@@ -40,7 +41,7 @@ function Navbar() {
 					</div>
 				</div>
 				<div className="navbar-links">
-					<div className="navbar-links-item" onClick={toggleAddBook}>
+					<div className="navbar-links-item" onClick={handleChildStateChange}>
 						<FontAwesomeIcon icon={faPlus} />
 						<span>Add book</span>
 					</div>
@@ -51,22 +52,7 @@ function Navbar() {
 				</div>
 			</div>
 
-			{wantAddBook && (
-				<div className="add-book-overlay">
-					<div className="add-book-form">
-						<h2>Add book</h2>
-						<form>
-							<input type="text" placeholder="Title" />
-							<input type="text" placeholder="Author" />
-							<input type="data" placeholder="Finished" />
-							<div className="add-book-form-btns">
-								<button type="submit">Add</button>
-								<button onClick={toggleAddBook}>Cancel</button>
-							</div>
-						</form>
-					</div>
-				</div>
-			)}
+			{wantAddBook && <NewBook onStateChange={handleChildStateChange} booksRef={props.booksRef} getBookList={props.getBookList} />}
 		</nav>
 	);
 }

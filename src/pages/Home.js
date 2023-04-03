@@ -1,19 +1,18 @@
 import React from "react";
 import { Auth } from "../components/Auth";
-import "../styles/Home.css";
+import "../styles/Home.scss";
 
 function Home() {
 	return (
-		<div className="home">
-			<h1>myLibrary</h1>
-			<p>Collect memories from the world of books</p>
-			<div className="home-form">
-				<div className="home-inputs">
-					<Auth />
-					
-				</div>
-			</div>
-		</div>
+		<section className="home">
+			<header className="header">
+				<h1 className="header__title">myLibrary</h1>
+				<p className="header__paragraph">
+					Collect memories from world of books
+				</p>
+			</header>
+			<Auth />
+		</section>
 	);
 }
 

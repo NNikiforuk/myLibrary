@@ -5,7 +5,14 @@
 }
 
 body {
-	background-color: rgb(5, 29, 5);
+	background: rgb(0, 0, 0);
+	background: linear-gradient(
+		130deg,
+		rgba(0, 0, 0, 1) 0%,
+		rgba(4, 60, 4, 1) 85%
+	);
+	font-family: 'Montserrat', sans-serif;
+
 }
 
 .app {

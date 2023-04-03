@@ -1,4 +1,4 @@
-import "./App.css";
+import "./App.scss";
 import Home from "./pages/Home";
 import Library from "./pages/Library";
 
@@ -6,7 +6,7 @@ function App() {
 	return (
 		<div className="app">
 			<Home />
-			<Library />
+			{/* <Library /> */}
 		</div>
 	);
 }
