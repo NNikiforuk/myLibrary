@@ -7,3 +7,9 @@
 	align-items: center;
 	color: #fff;
 }
+
+.library-main {
+	background-color: gold;
+	height: auto;
+	width: 100vw;
+}
