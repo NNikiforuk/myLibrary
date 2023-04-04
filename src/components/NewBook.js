@@ -2,15 +2,15 @@ import React from "react";
 import "../styles/NewBook.scss";
 import { useState } from "react";
 import { addDoc } from "firebase/firestore";
+import { auth } from "../config/firebase";
 
 function NewBook(props) {
-	const [wantAddBook, setWantAddBook] = useState(false);
 	const [newBookTitle, setNewBookTitle] = useState("");
 	const [newBookAuthor, setNewBookAuthor] = useState("");
 	const [newBookFinished, setNewBookFinished] = useState("");
 
 	const toggleAddBook = () => {
-		setWantAddBook(!wantAddBook);
+		props.onStateChange(false);
 	};
 
 	const onSubmitBook = async () => {
@@ -19,9 +19,10 @@ function NewBook(props) {
 				title: newBookTitle,
 				author: newBookAuthor,
 				finished: newBookFinished,
+				userId: auth?.currentUser?.uid,
 			});
-			props.getBookList();
-			props.onStateChange(false);
+			await props.getBookList();
+			toggleAddBook();
 		} catch (err) {
 			console.error(err);
 		}
@@ -31,7 +32,7 @@ function NewBook(props) {
 		<section className="addBook">
 			<div className="addBook__form">
 				<h2 className="addBook__form__title">Add book</h2>
-				<form>
+				<div>
 					<input
 						className="addBook__form__input"
 						type="text"
@@ -54,15 +55,11 @@ function NewBook(props) {
 						<button className="addBook__form__button" onClick={onSubmitBook}>
 							Add
 						</button>
-						<button
-							className="addBook__form__button"
-							onClick={toggleAddBook}
-							value={wantAddBook}
-						>
+						<button className="addBook__form__button" onClick={toggleAddBook}>
 							Cancel
 						</button>
 					</div>
-				</form>
+				</div>
 			</div>
 		</section>
 	);

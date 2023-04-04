@@ -5,7 +5,7 @@ import Library from "./pages/Library";
 function App() {
 	return (
 		<div className="app">
-			{/* <Home /> */}
+			<Home />
 			<Library />
 		</div>
 	);

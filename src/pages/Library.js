@@ -3,10 +3,7 @@ import Navbar from "../components/Navbar";
 import "../styles/Library.scss";
 import { useEffect, useState } from "react";
 import { database } from "../config/firebase";
-import {
-	getDocs,
-	collection,
-} from "firebase/firestore";
+import { getDocs, collection } from "firebase/firestore";
 import NewBook from "../components/NewBook";
 import Book from "../components/Book";
 
@@ -36,12 +33,13 @@ function Library() {
 		setWantAddBook(newState);
 	};
 
-
 	return (
 		<main className="library">
 			<Navbar booksRef={booksCollectionRef} getBookList={getBookList} />
-			<div className="library__main">
-			<Book bookList={bookList} getBookList={getBookList} />
+			<div className="library__books">
+				{bookList.map((book) => (
+					<Book book={book} bookList={bookList} getBookList={getBookList} key={book.id} />
+				))}
 			</div>
 			{wantAddBook && (
 				<NewBook

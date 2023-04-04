@@ -8,6 +8,8 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import NewBook from "./NewBook";
+import { signOut } from "firebase/auth";
+import { auth } from "../config/firebase";
 
 function Navbar(props) {
 	const [isBurgerCollapsed, setIsBurgerCollapsed] = useState(false);
@@ -19,6 +21,16 @@ function Navbar(props) {
 
 	const handleChildStateChange = (newState) => {
 		setWantAddBook(newState);
+		setIsBurgerCollapsed(false);
+	};
+
+	const logout = async () => {
+		try {
+			await signOut(auth);
+			setIsBurgerCollapsed(!isBurgerCollapsed);
+		} catch (err) {
+			console.log(err);
+		}
 	};
 
 	return (
@@ -36,7 +48,9 @@ function Navbar(props) {
 					<div className="navbar__menu__item" onClick={handleChildStateChange}>
 						Add book
 					</div>
-					<div className="navbar__menu__item">Log out</div>
+					<div className="navbar__menu__item" onClick={logout}>
+						Log out
+					</div>
 				</div>
 				<div className="navbar__links">
 					<div className="navbar__links__item" onClick={handleChildStateChange}>
@@ -53,7 +67,7 @@ function Navbar(props) {
 			{wantAddBook && (
 				<NewBook
 					onStateChange={handleChildStateChange}
-					booksRef={props.booksRef}
+					booksCollectionRef={props.booksRef}
 					getBookList={props.getBookList}
 				/>
 			)}

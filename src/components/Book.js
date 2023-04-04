@@ -3,6 +3,7 @@ import { useState } from "react";
 import { doc, updateDoc, deleteDoc } from "firebase/firestore";
 import { database } from "../config/firebase";
 
+
 function Book(prop) {
 	const [updatedTitle, setUpdatedTitle] = useState("");
 
@@ -20,19 +21,15 @@ function Book(prop) {
 
 	return (
 		<div className="book">
-			{prop.bookList.map((book) => (
-				<div className="library__main__item" key={book.id} id={book.id}>
-					<h1>{book.title}</h1>
-					<p>{book.author}</p>
-					<button onClick={() => deleteBook(book.id)}>Delete</button>
-					<button onClick={() => updateBookTitle(book.id)}>Update title</button>
-					<input
-						type="text"
-						placeholder="Update title..."
-						onChange={(e) => setUpdatedTitle(e.target.value)}
-					/>
-				</div>
-			))}
+			<h1>{prop.book.title}</h1>
+			<p>{prop.book.author}</p>
+			<input
+				type="text"
+				placeholder="Update title..."
+				onChange={(e) => setUpdatedTitle(e.target.value)}
+			/>
+			<button onClick={() => updateBookTitle(prop.book.id)}>Edit title</button>
+			<button onClick={() => deleteBook(prop.book.id)}>Delete</button>
 		</div>
 	);
 }
