@@ -59,7 +59,9 @@ function Navbar(props) {
 					</div>
 					<div className="navbar__links__item">
 						<FontAwesomeIcon icon={faSignOutAlt} />
-						<span className="navbar__links__title">Log out</span>
+						<span className="navbar__links__title" onClick={logout}>
+							Log out
+						</span>
 					</div>
 				</div>
 			</div>
