@@ -24,7 +24,7 @@ export const Auth = () => {
 	};
 
 	return (
-		<section className="container">
+		<section className="authContainer">
 			<div className="auth">
 				<div className="form">
 					<input

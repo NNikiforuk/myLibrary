@@ -23,36 +23,40 @@ function Navbar(props) {
 
 	return (
 		<nav className="navbar">
-			<div className="navbar-container">
-				<div className="navbar-logo">
+			<div className="navbarContainer">
+				<div className="navbar__logo">
 					<h1>myLibrary</h1>
 				</div>
-				<div className="navbar-burger" onClick={toggleBurger}>
+				<div className="navbar__burger" onClick={toggleBurger}>
 					<FontAwesomeIcon icon={faBars} />
 				</div>
-				<div className={isBurgerCollapsed ? "navbar-menu show" : "navbar-menu"}>
-					<div className="navbar-menu-item" onClick={handleChildStateChange}>
-						<FontAwesomeIcon icon={faPlus} />
-						<span>Add book</span>
+				<div
+					className={isBurgerCollapsed ? "navbar__menu show" : "navbar__menu"}
+				>
+					<div className="navbar__menu__item" onClick={handleChildStateChange}>
+						Add book
 					</div>
-					<div className="navbar-menu-item">
-						<FontAwesomeIcon icon={faSignOutAlt} />
-						<span>Log out</span>
-					</div>
+					<div className="navbar__menu__item">Log out</div>
 				</div>
-				<div className="navbar-links">
-					<div className="navbar-links-item" onClick={handleChildStateChange}>
+				<div className="navbar__links">
+					<div className="navbar__links__item" onClick={handleChildStateChange}>
 						<FontAwesomeIcon icon={faPlus} />
-						<span>Add book</span>
+						<span className="navbar__links__title">Add book</span>
 					</div>
-					<div className="navbar-links-item">
+					<div className="navbar__links__item">
 						<FontAwesomeIcon icon={faSignOutAlt} />
-						<span>Log out</span>
+						<span className="navbar__links__title">Log out</span>
 					</div>
 				</div>
 			</div>
 
-			{wantAddBook && <NewBook onStateChange={handleChildStateChange} booksRef={props.booksRef} getBookList={props.getBookList} />}
+			{wantAddBook && (
+				<NewBook
+					onStateChange={handleChildStateChange}
+					booksRef={props.booksRef}
+					getBookList={props.getBookList}
+				/>
+			)}
 		</nav>
 	);
 }

@@ -1,4 +1,4 @@
-.add-book-overlay {
+.addBook {
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -6,42 +6,67 @@
 	height: 100%;
 	background-color: rgba(0, 0, 0, 0.5);
 
-	.add-book-form {
+	&__form {
 		position: absolute;
 		top: 50%;
 		left: 50%;
 		transform: translate(-50%, -50%);
-		width: 80%;
-		background-color: #ffffffcc;
+		max-width: 24rem;
 		padding: 1em;
 		border-radius: 1em;
 		text-align: center;
 		color: #333;
+		background-color: rgba(#d0d8cecc, 1);
 
-		.add-book-form h2 {
+		&__title {
 			margin-bottom: 0.8em;
 			font-size: 1.5em;
 			font-weight: 700;
 		}
 
-		.add-book-form-btns {
+		&__input {
+			padding: 0.4em;
+			margin: 0.3rem;
+			border-radius: 1em;
+			border: none;
+		}
+
+		&__buttons {
 			margin-top: 0.8em;
 			display: flex;
 			justify-content: center;
 			gap: 1em;
+		}
 
-			.add-book-form-btns button {
-				background-color: transparent;
-				border: none;
-				font-weight: bold;
-				color: rgb(40, 150, 30);
+		&__button {
+			cursor: pointer;
+			background: none;
+			border: none;
+			font-weight: bold;
+			color: rgb(40, 150, 30);
+			font-size: 1em;
+		}
+
+	}
+}
+
+@media only screen and (min-width: 414px) {
+	.addBook {
+		&__form {
+			&__input {
 				font-size: 1em;
+				padding: 0.5em;
+				margin: 0.5rem;
+			}
+
+			&__button {
+				font-size: 1.5em;
 			}
 		}
 	}
 }
 
-@media (min-width: 768px) {
+@media only screen and (min-width: 768px) {
 	.add-book-overlay {
 		.add-book-form {
 			.add-book-form {
