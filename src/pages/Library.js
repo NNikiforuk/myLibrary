@@ -7,10 +7,10 @@ import { getDocs, collection } from "firebase/firestore";
 import NewBook from "../components/NewBook";
 import Book from "../components/Book";
 
-function Library() {
+function Library(props) {
 	const [bookList, setBookList] = useState([]);
-	const booksCollectionRef = collection(database, "books");
 	const [wantAddBook, setWantAddBook] = useState(false);
+	const booksCollectionRef = collection(database, "books");
 
 	const getBookList = async () => {
 		try {

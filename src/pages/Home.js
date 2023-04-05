@@ -1,8 +1,17 @@
 import React from "react";
 import { Auth } from "../components/Auth";
 import "../styles/Home.scss";
+import { useState } from "react";
 
 function Home() {
+	const [firstName, setFirstName] = useState("");
+
+	const handleFirstNameChange = (newFirstName) => {
+		setFirstName(newFirstName);
+	};
+
+	console.log(firstName);
+
 	return (
 		<section className="home">
 			<header className="header">
@@ -11,7 +20,7 @@ function Home() {
 					Collect memories from world of books
 				</p>
 			</header>
-			<Auth />
+			<Auth onFirstNameChange={handleFirstNameChange} />
 		</section>
 	);
 }

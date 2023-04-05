@@ -1,32 +1,24 @@
 import { auth, googleProvider } from "../config/firebase";
-import { createUserWithEmailAndPassword, signInWithPopup } from "firebase/auth";
+import { signInWithPopup } from "firebase/auth";
 import { useState } from "react";
 import "../styles/Auth.scss";
+import { Link } from "react-router-dom";
 
-export const Auth = () => {
-	const [email, setEmail] = useState("");
-	const [password, setPassword] = useState("");
+export const Auth = (props) => {
+	const [firstName, setFirstName] = useState("");
 	const [isUserVerified, setIsUserVerified] = useState(false);
-
-	const signIn = async () => {
-		try {
-			await createUserWithEmailAndPassword(auth, email, password);
-		} catch (err) {
-			console.error(err);
-		}
-	};
 
 	const signInWithGoogle = async () => {
 		await signInWithPopup(auth, googleProvider)
 			.then((result) => {
 				const fullName = result.user.displayName.split(" ");
-				const firstName = fullName[0];
-				localStorage.setItem("name", firstName);
-				console.log(result.user.emailVerified);
+				const newFirstName = fullName[0];
+				setFirstName(newFirstName);
 
 				if (result.user.emailVerified === "true") {
 					setIsUserVerified("true");
 				}
+				props.onFirstNameChange(newFirstName);
 			})
 			.catch((err) => {
 				console.error(err);
@@ -34,35 +26,20 @@ export const Auth = () => {
 	};
 
 	return (
-		<section className="authContainer">
-			<div className="auth">
-				<div className="form">
-					<input
-						className="form__input"
-						type="email"
-						placeholder="Email..."
-						onChange={(e) => setEmail(e.target.value)}
-					/>
-					<input
-						className="form__input"
-						type="password"
-						placeholder="Password..."
-						onChange={(e) => setPassword(e.target.value)}
-					/>
-					<button className="form__button" onClick={signIn}>
-						Sign in
-					</button>
-					<h1>{localStorage.getItem("name")}</h1>
-				</div>
-			</div>
-			<div className="google">
-				<p className="google__paragraph">or</p>
-				<div className="google__auth">
-					<button className="google__button" onClick={signInWithGoogle}>
-						Sign in with Google
-					</button>
-				</div>
-			</div>
+		<section className="auth">
+			{isUserVerified ? (
+				<Link
+					to={"/library"}
+					className="auth__button"
+					onClick={signInWithGoogle}
+				>
+					Sign in with <span className="auth__button-google">Google</span>
+				</Link>
+			) : (
+				<button className="auth__button" onClick={signInWithGoogle}>
+					Sign in with <span className="auth__button-google">Google</span>
+				</button>
+			)}
 		</section>
 	);
 };
