@@ -11,6 +11,8 @@ function Library(props) {
 	const [bookList, setBookList] = useState([]);
 	const [wantAddBook, setWantAddBook] = useState(false);
 	const booksCollectionRef = collection(database, "books");
+	const [myName, setMyName] = useState("")
+
 
 	const getBookList = async () => {
 		try {
@@ -26,6 +28,7 @@ function Library(props) {
 	};
 
 	useEffect(() => {
+		setMyName(props.firstName)
 		getBookList();
 	}, []);
 
@@ -37,6 +40,7 @@ function Library(props) {
 		<main className="library">
 			<Navbar booksRef={booksCollectionRef} getBookList={getBookList} />
 			<div className="library__books">
+			<h1 className="library__books-hello">Hi {myName}!</h1>
 				{bookList.map((book) => (
 					<Book book={book} bookList={bookList} getBookList={getBookList} key={book.id} />
 				))}

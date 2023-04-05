@@ -8,13 +8,12 @@ import {
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import NewBook from "./NewBook";
-import { signOut } from "firebase/auth";
-import { auth } from "../config/firebase";
 import { useNavigate } from "react-router-dom";
 
 function Navbar(props) {
 	const [isBurgerCollapsed, setIsBurgerCollapsed] = useState(false);
 	const [wantAddBook, setWantAddBook] = useState(false);
+	let navigate = useNavigate();
 
 	const toggleBurger = () => {
 		setIsBurgerCollapsed(!isBurgerCollapsed);
@@ -27,7 +26,10 @@ function Navbar(props) {
 
 	const logout = async () => {
 		try {
-			await signOut(auth);
+			let authToken = sessionStorage.removeItem("Auth Token");
+			if (!authToken) {
+				navigate("/");
+			}
 			setIsBurgerCollapsed(!isBurgerCollapsed);
 		} catch (err) {
 			console.log(err);
@@ -38,7 +40,9 @@ function Navbar(props) {
 		<nav className="navbar">
 			<div className="navbarContainer">
 				<div className="navbar__logo">
-					<h1>myLibrary</h1>
+					<h1>
+						my<span className="navbar__logo-title">Library</span>
+					</h1>
 				</div>
 				<div className="navbar__burger" onClick={toggleBurger}>
 					<FontAwesomeIcon icon={faBars} />

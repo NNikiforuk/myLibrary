@@ -1,0 +1,38 @@
+.book {
+	margin-bottom: 1rem;
+	color: #ffffffcc;
+
+	&__title {
+		font-size: 1.3em;
+	}
+
+	&__author {
+		padding: 0.7em;
+	}
+
+	&__inputs {
+		display: flex;
+		flex-direction: column;
+		margin-bottom: 1rem;
+
+		&__one {
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+
+	&__input {
+		max-width: 10rem;
+		padding: 0.3em;
+        border-radius: .5em;
+        text-align: center;
+	}
+
+    &__button {
+        cursor: pointer;
+        background: none;
+        border: none;
+        margin: 0 auto;
+        color: #ffffffcc;
+    }
+}

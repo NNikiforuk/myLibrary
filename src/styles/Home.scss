@@ -5,17 +5,22 @@
 	align-items: center;
 	width: 100vw;
 	height: 100vh;
-	color: #f1f2ed;
+	color: #ffffffcc;
 
 	.header {
 		display: flex;
 		flex-direction: column;
 		justify-content: center;
 		align-items: center;
-		color: #f1f2ed;
+		color: #ffffffcc;
 
 		&__title {
 			margin-top: 4rem;
+
+			&-logo {
+				color: rgb(220, 220, 94);
+				border-bottom: 1px solid #ffffffcc;
+			}
 		}
 
 		&__paragraph {

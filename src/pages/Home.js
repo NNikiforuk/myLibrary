@@ -10,7 +10,9 @@ function Home(props) {
 	return (
 		<section className="home">
 			<header className="header">
-				<h1 className="header__title">myLibrary</h1>
+				<h1 className="header__title">
+					my<span className="header__title-logo">Library</span>
+				</h1>
 				<p className="header__paragraph">
 					Collect memories from world of books
 				</p>

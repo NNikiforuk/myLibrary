@@ -19,14 +19,12 @@ function App() {
 				<Routes>
 					<Route
 						path="/"
-						element={
-							<Home
-								firstName={firstName}
-								onFirstNameChange={handleFirstNameChange}
-							/>
-						}
+						element={<Home onFirstNameChange={handleFirstNameChange} />}
 					></Route>
-					<Route path="/library" element={<Library />}></Route>
+					<Route
+						path="/library"
+						element={<Library firstName={firstName} />}
+					></Route>
 				</Routes>
 			</Router>
 		</div>

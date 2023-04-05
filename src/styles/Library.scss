@@ -3,19 +3,21 @@
 	flex-direction: column;
 	justify-content: flex-start;
 	align-items: center;
-	height: 100vh;
 	width: 100vw;
+	height: 100vh;
 	color: #fff;
 
 	&__books {
-		display: flex;
-		flex-direction: column;
-		justify-content: center;
-		align-items: center;
+		display: grid;
+		grid-template-columns: 1fr;
 		text-align: center;
 		width: 90%;
 		height: auto;
 		margin-top: 7rem;
+
+		&-hello {
+			color: yellow;
+			margin-bottom: 2rem;
+		}
 	}
 }
-
