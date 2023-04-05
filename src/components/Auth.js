@@ -6,6 +6,7 @@ import "../styles/Auth.scss";
 export const Auth = () => {
 	const [email, setEmail] = useState("");
 	const [password, setPassword] = useState("");
+	const [isUserVerified, setIsUserVerified] = useState(false);
 
 	const signIn = async () => {
 		try {
@@ -16,11 +17,20 @@ export const Auth = () => {
 	};
 
 	const signInWithGoogle = async () => {
-		try {
-			await signInWithPopup(auth, googleProvider);
-		} catch (err) {
-			console.error(err);
-		}
+		await signInWithPopup(auth, googleProvider)
+			.then((result) => {
+				const fullName = result.user.displayName.split(" ");
+				const firstName = fullName[0];
+				localStorage.setItem("name", firstName);
+				console.log(result.user.emailVerified);
+
+				if (result.user.emailVerified === "true") {
+					setIsUserVerified("true");
+				}
+			})
+			.catch((err) => {
+				console.error(err);
+			});
 	};
 
 	return (
@@ -42,6 +52,7 @@ export const Auth = () => {
 					<button className="form__button" onClick={signIn}>
 						Sign in
 					</button>
+					<h1>{localStorage.getItem("name")}</h1>
 				</div>
 			</div>
 			<div className="google">
