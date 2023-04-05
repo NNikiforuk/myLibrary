@@ -10,6 +10,7 @@ import { useState } from "react";
 import NewBook from "./NewBook";
 import { signOut } from "firebase/auth";
 import { auth } from "../config/firebase";
+import { useNavigate } from "react-router-dom";
 
 function Navbar(props) {
 	const [isBurgerCollapsed, setIsBurgerCollapsed] = useState(false);
