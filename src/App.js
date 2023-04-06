@@ -4,6 +4,7 @@ import Library from "./pages/Library";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
 import { GoogleAuthProvider } from "firebase/auth";
+import Shelves from "./pages/Shelves";
 
 function App() {
 	const googleProvider = new GoogleAuthProvider();
@@ -24,6 +25,10 @@ function App() {
 					<Route
 						path="/library"
 						element={<Library firstName={firstName} />}
+					></Route>
+					<Route
+						path="/shelves"
+						element={<Shelves firstName={firstName} />}
 					></Route>
 				</Routes>
 			</Router>

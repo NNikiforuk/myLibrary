@@ -11,8 +11,7 @@ function Library(props) {
 	const [bookList, setBookList] = useState([]);
 	const [wantAddBook, setWantAddBook] = useState(false);
 	const booksCollectionRef = collection(database, "books");
-	const [myName, setMyName] = useState("")
-
+	const [myName, setMyName] = useState("");
 
 	const getBookList = async () => {
 		try {
@@ -28,8 +27,10 @@ function Library(props) {
 	};
 
 	useEffect(() => {
-		setMyName(props.firstName)
 		getBookList();
+	}, []);
+	useEffect(() => {
+		setMyName(props.firstName);
 	}, []);
 
 	const handleChildStateChange = (newState) => {
@@ -37,22 +38,29 @@ function Library(props) {
 	};
 
 	return (
-		<main className="library">
+		<div className="libraryContainer">
 			<Navbar booksRef={booksCollectionRef} getBookList={getBookList} />
-			<div className="library__books">
-			<h1 className="library__books-hello">Hi {myName}!</h1>
-				{bookList.map((book) => (
-					<Book book={book} bookList={bookList} getBookList={getBookList} key={book.id} />
-				))}
+			<div className="library">
+				<h1 className="library__books-hello">Hi {myName}!</h1>
+				<div className="library__books">
+					{bookList.map((book) => (
+						<Book
+							book={book}
+							bookList={bookList}
+							getBookList={getBookList}
+							key={book.id}
+						/>
+					))}
+				</div>
+				{wantAddBook && (
+					<NewBook
+						onStateChange={handleChildStateChange}
+						booksCollectionRef={booksCollectionRef}
+						getBookList={getBookList}
+					/>
+				)}
 			</div>
-			{wantAddBook && (
-				<NewBook
-					onStateChange={handleChildStateChange}
-					booksCollectionRef={booksCollectionRef}
-					getBookList={getBookList}
-				/>
-			)}
-		</main>
+		</div>
 	);
 }
 
