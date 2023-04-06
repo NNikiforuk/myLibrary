@@ -4,12 +4,11 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
 	faBars,
 	faPlus,
-	faSignOutAlt,
-	faTable,
+	faSignOutAlt
 } from "@fortawesome/free-solid-svg-icons";
 import { useState } from "react";
 import NewBook from "./NewBook";
-import { useNavigate, Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 function Navbar(props) {
 	const [isBurgerCollapsed, setIsBurgerCollapsed] = useState(false);
@@ -50,9 +49,6 @@ function Navbar(props) {
 				<div className="navbar__menu__item" onClick={handleChildStateChange}>
 					Add book
 				</div>
-				<Link to="/shelves" className="navbar__menu__item">
-					Change layout
-				</Link>
 				<div className="navbar__menu__item" onClick={logout}>
 					Log out
 				</div>
@@ -62,10 +58,6 @@ function Navbar(props) {
 					<FontAwesomeIcon icon={faPlus} />
 					<span className="navbar__links__title">Add book</span>
 				</div>
-				<Link to="/shelves" className="navbar__links__item">
-					<FontAwesomeIcon icon={faTable} />
-					<span className="navbar__links__title">Change layout</span>
-				</Link>
 				<div className="navbar__links__item">
 					<FontAwesomeIcon icon={faSignOutAlt} />
 					<span className="navbar__links__title" onClick={logout}>

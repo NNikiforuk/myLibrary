@@ -9,11 +9,43 @@
 		width: 100vw;
 		color: #fff;
 
+		.bookshelf {
+			width: 90%;
+			margin: 0 auto;
+			text-align: center;
+
+			&__books {
+				height: auto;
+				display: flex;
+				align-items: flex-end;
+				justify-content: center;
+
+			}
+
+			&__shelf {
+				background-color: rgb(95, 58, 15);
+				width: 100%;
+				height: 0.7rem;
+				border-bottom-left-radius: 1em;
+				border-bottom-right-radius: 1em;
+			}
+
+			&__shelf__title {
+				background-color: #fff;
+				color: black;
+				display: inline-block;
+				padding: 0.4em 0.8em;
+				border-radius: 1em;
+				font-size: 0.7em;
+			}
+		}
+
 		&__books {
 			display: grid;
 			grid-template-columns: 1fr;
 			width: 90%;
 			text-align: center;
+			margin-top: 1rem;
 
 			&-hello {
 				color: yellow;

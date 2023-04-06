@@ -6,12 +6,14 @@ import { database } from "../config/firebase";
 import { getDocs, collection } from "firebase/firestore";
 import NewBook from "../components/NewBook";
 import Book from "../components/Book";
+import Cover from "../components/Cover";
 
 function Library(props) {
 	const [bookList, setBookList] = useState([]);
 	const [wantAddBook, setWantAddBook] = useState(false);
 	const booksCollectionRef = collection(database, "books");
 	const [myName, setMyName] = useState("");
+	const [currentYear, setCurrentYear] = useState(0);
 
 	const getBookList = async () => {
 		try {
@@ -28,9 +30,11 @@ function Library(props) {
 
 	useEffect(() => {
 		getBookList();
-	}, []);
-	useEffect(() => {
 		setMyName(props.firstName);
+	}, []);
+
+	useEffect(() => {
+		setCurrentYear(new Date().getFullYear());
 	}, []);
 
 	const handleChildStateChange = (newState) => {
@@ -42,6 +46,17 @@ function Library(props) {
 			<Navbar booksRef={booksCollectionRef} getBookList={getBookList} />
 			<div className="library">
 				<h1 className="library__books-hello">Hi {myName}!</h1>
+
+				<div className="bookshelf">
+					<div className="bookshelf__books">
+						{bookList.map((book) => (
+							<Cover book={book} key={book.id} />
+						))}
+					</div>
+					<div className="bookshelf__shelf"></div>
+					<div className="bookshelf__shelf__title">{currentYear}</div>
+				</div>
+
 				<div className="library__books">
 					{bookList.map((book) => (
 						<Book
