@@ -9,6 +9,7 @@ import {
 import { useState } from "react";
 import NewBook from "./NewBook";
 import { useNavigate } from "react-router-dom";
+import Logo from "../components/Logo";
 
 function Navbar(props) {
 	const [isBurgerCollapsed, setIsBurgerCollapsed] = useState(false);
@@ -38,10 +39,7 @@ function Navbar(props) {
 
 	return (
 		<div className="navbar">
-			<h1 className="navbar__logo">
-				my<span className="navbar__logo-title">Library</span>
-			</h1>
-
+			<Logo />
 			<div className="navbar__burger" onClick={toggleBurger}>
 				<FontAwesomeIcon icon={faBars} />
 			</div>

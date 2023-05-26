@@ -7,18 +7,6 @@
 	align-items: center;
 	padding: 1em;
 
-	&__logo {
-		font-size: 1em;
-		font-weight: 700;
-		color: #ffffffcc;
-		display: inline-block;
-
-		&-title {
-			color: rgb(220, 220, 94);
-			border-bottom: 1px solid #ffffffcc;
-		}
-	}
-
 	.navbar__burger {
 		font-size: 1.5em;
 		color: #ffffffcc;

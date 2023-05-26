@@ -1,0 +1,19 @@
+.header__title {
+	color: #ffffffcc;
+	.header__title {
+		&-logo {
+			color: rgb(79, 150, 59);
+			border-bottom: 1px solid #ffffffcc;
+		}
+	}
+}
+
+@media only screen and (min-width: 414px) {
+	.home {
+		.header {
+			&__title {
+				font-size: 2em;
+			}
+		}
+	}
+}
