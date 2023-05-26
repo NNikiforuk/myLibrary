@@ -25,7 +25,7 @@
 ## I used
 
 * React.js
-* SCSS
+* SCSS, BEM
 * React Router
 * Firebase
 * Font awesome
