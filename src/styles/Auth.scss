@@ -56,4 +56,18 @@
 	}
 }
 
+@media only screen and (min-width: 1024px) {
+	.auth {
+		&__button {
+			font-size: 1.8em;
+		}
+	}
+}
 
+@media only screen and (min-width: 1400px) {
+	.auth {
+		&__button {
+			font-size: 1.5em;
+		}
+	}
+}

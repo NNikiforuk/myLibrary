@@ -39,7 +39,7 @@ function Navbar(props) {
 
 	return (
 		<div className="navbar">
-			<Logo />
+			<Logo fontSize="18px" />
 			<div className="navbar__burger" onClick={toggleBurger}>
 				<FontAwesomeIcon icon={faBars} />
 			</div>

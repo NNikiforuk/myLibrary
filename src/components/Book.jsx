@@ -70,7 +70,7 @@ function Book(prop) {
 							<input
 								className="updateBook__input"
 								type="text"
-								placeholder="Upd`ate author..."
+								placeholder="Update author..."
 								onChange={(e) => setUpdatedAuthor(e.target.value)}
 							/>
 							<button

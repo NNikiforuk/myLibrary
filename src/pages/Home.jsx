@@ -11,7 +11,7 @@ function Home(props) {
 	return (
 		<section className="home">
 			<header className="header">
-				<Logo />
+				<Logo fontSize="24px" />
 				<p className="header__paragraph">
 					Collect memories from world of books
 				</p>

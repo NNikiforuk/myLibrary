@@ -7,7 +7,6 @@
 	height: 100vh;
 	color: #ffffffcc;
 
-
 	.header {
 		display: flex;
 		flex-direction: column;
@@ -39,6 +38,21 @@
 	.home {
 		.header {
 			&__paragraph {
+				font-size: 1.5em;
+			}
+		}
+	}
+}
+
+@media only screen and (min-width: 1024px) {
+	.home {
+		.header {
+			margin-top: 100px;
+
+			&__paragraph {
+				margin-top: 2rem;
+				padding: 0 1em 0 1em;
+				text-align: center;
 				font-size: 1.5em;
 			}
 		}

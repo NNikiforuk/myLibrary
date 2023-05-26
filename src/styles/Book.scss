@@ -3,10 +3,11 @@
 	color: #ffffffcc;
 
 	&__title {
-		font-size: 1.3em;
+		font-size: 1em;
 	}
 
 	&__author {
+		font-size: 0.8em;
 		padding: 0.7em;
 	}
 
@@ -15,7 +16,7 @@
 		display: flex;
 		justify-content: center;
 		gap: 1em;
-		cursor: pointer;
+		font-size: 0.9em;
 
 		&__icon {
 			cursor: pointer;
@@ -71,6 +72,7 @@
 					padding: 0.5em 1em;
 					border-radius: 1em;
 					margin-top: 1rem;
+					border: none;
 				}
 			}
 		}
@@ -84,3 +86,4 @@
 		display: none;
 	}
 }
+
