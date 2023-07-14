@@ -18,15 +18,19 @@ function Library() {
 
 	const auth = getAuth();
 
-	useEffect(() => {
-		const unsubscribe = auth.onAuthStateChanged((user) => {
-			if (user.displayName) {
-				setName(user.displayName.split(" ")[0]);
-			}
-		});
+	useEffect(
+		() => {
+			const unsubscribe = auth.onAuthStateChanged((user) => {
+				if (user.displayName) {
+					setName(user.displayName.split(" ")[0]);
+				}
+			});
 
-		return unsubscribe;
-	}, []);
+			return unsubscribe;
+		},
+		// eslint-disable-next-line
+		[]
+	);
 
 	const getBookList = async () => {
 		try {
@@ -41,9 +45,13 @@ function Library() {
 		}
 	};
 
-	useEffect(() => {
-		getBookList();
-	}, []);
+	useEffect(
+		() => {
+			getBookList();
+		},
+		// eslint-disable-next-line
+		[]
+	);
 
 	useEffect(() => {
 		setCurrentYear(new Date().getFullYear());
