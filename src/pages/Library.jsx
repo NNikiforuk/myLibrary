@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useCallback } from "react";
 import Navbar from "../components/Navbar";
 import "../styles/Library.scss";
 import { useEffect, useState } from "react";
@@ -15,7 +15,7 @@ function Library(props) {
 	const [myName, setMyName] = useState("");
 	const [currentYear, setCurrentYear] = useState(0);
 
-	const getBookList = async () => {
+	const getBookList = useCallback(async () => {
 		try {
 			const data = await getDocs(booksCollectionRef);
 			const filteredData = data.docs.map((doc) => ({
@@ -26,7 +26,7 @@ function Library(props) {
 		} catch (err) {
 			console.error(err);
 		}
-	};
+	});
 
 	useEffect(() => {
 		getBookList();
