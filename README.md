@@ -5,6 +5,8 @@
 </h1>
 
 <h4 align="center">Your digital library</h4>
+<p align="center">Collect all your finished books</p>
+<h4 align="center"> <a href="https://nikislibrary.netlify.app/" target="_blank">Click to see the project</a> </h4>
 <h4 align="center">
 <img src="https://github.com/NNikiforuk/myLibrary/assets/104830490/61ce6122-9160-4a65-87cc-e5128eb2ba1a" width="200" height="450"/>
 <img src="https://github.com/NNikiforuk/myLibrary/assets/104830490/ce2f4e9e-8105-487f-a448-594e4316790f" width="200" height="450"/>
