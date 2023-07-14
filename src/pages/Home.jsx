@@ -1,13 +1,9 @@
 import React from "react";
 import { Auth } from "../components/Auth";
 import "../styles/Home.scss";
-import Logo from "../components/Logo"
+import Logo from "../components/Logo";
 
-function Home(props) {
-	const handleFirstNameChange = (event) => {
-		props.onFirstNameChange(event);
-	};
-
+function Home() {
 	return (
 		<section className="home">
 			<header className="header">
@@ -16,10 +12,7 @@ function Home(props) {
 					Collect memories from world of books
 				</p>
 			</header>
-			<Auth
-				firstName={props.firstName}
-				onFirstNameChange={handleFirstNameChange}
-			/>
+			<Auth />
 		</section>
 	);
 }

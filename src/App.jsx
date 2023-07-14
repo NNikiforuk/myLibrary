@@ -2,14 +2,10 @@ import "./App.scss";
 import Home from "./pages/Home";
 import Library from "./pages/Library";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { useState } from "react";
+import { GoogleAuthProvider } from "firebase/auth";
 
 function App() {
-	const [firstName, setFirstName] = useState("");
-
-	const handleFirstNameChange = (event) => {
-		setFirstName(event.target.value);
-	};
+	const googleProvider = new GoogleAuthProvider();
 
 	return (
 		<div className="app">
@@ -17,11 +13,11 @@ function App() {
 				<Routes>
 					<Route
 						path="/"
-						element={<Home onFirstNameChange={handleFirstNameChange} />}
+						element={<Home />}
 					></Route>
 					<Route
 						path="/library"
-						element={<Library firstName={firstName} />}
+						element={<Library />}
 					></Route>
 				</Routes>
 			</Router>

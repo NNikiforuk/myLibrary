@@ -3,11 +3,8 @@ import { signInWithPopup } from "firebase/auth";
 import "../styles/Auth.scss";
 import { useNavigate } from "react-router-dom";
 
-export const Auth = (props) => {
+export const Auth = () => {
 	const navigate = useNavigate();
-	const handleFirstNameChange = (event) => {
-		props.onFirstNameChange(event);
-	};
 
 	const signInWithGoogle = async () => {
 		await signInWithPopup(auth, googleProvider)
@@ -17,8 +14,6 @@ export const Auth = (props) => {
 					"Auth Token",
 					result._tokenResponse.refreshToken
 				);
-				const fullName = result.user.displayName.split(" ")[0];
-				handleFirstNameChange({ target: { value: fullName } });
 			})
 
 			.catch((err) => {

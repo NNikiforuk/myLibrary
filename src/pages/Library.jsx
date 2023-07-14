@@ -1,4 +1,4 @@
-import React, { useCallback } from "react";
+import React from "react";
 import Navbar from "../components/Navbar";
 import "../styles/Library.scss";
 import { useEffect, useState } from "react";
@@ -7,15 +7,28 @@ import { getDocs, collection } from "firebase/firestore";
 import NewBook from "../components/NewBook";
 import Book from "../components/Book";
 import Cover from "../components/Cover";
+import { getAuth } from "firebase/auth";
 
-function Library(props) {
+function Library() {
 	const [bookList, setBookList] = useState([]);
 	const [wantAddBook, setWantAddBook] = useState(false);
 	const booksCollectionRef = collection(database, "books");
-	const [myName, setMyName] = useState("");
 	const [currentYear, setCurrentYear] = useState(0);
+	const [name, setName] = useState("");
 
-	const getBookList = useCallback(async () => {
+	const auth = getAuth();
+
+	useEffect(() => {
+		const unsubscribe = auth.onAuthStateChanged((user) => {
+			if (user.displayName) {
+				setName(user.displayName.split(" ")[0]);
+			}
+		});
+
+		return unsubscribe;
+	}, []);
+
+	const getBookList = async () => {
 		try {
 			const data = await getDocs(booksCollectionRef);
 			const filteredData = data.docs.map((doc) => ({
@@ -26,12 +39,11 @@ function Library(props) {
 		} catch (err) {
 			console.error(err);
 		}
-	});
+	};
 
 	useEffect(() => {
 		getBookList();
-		setMyName(props.firstName);
-	}, [props.firstName, getBookList]);
+	}, []);
 
 	useEffect(() => {
 		setCurrentYear(new Date().getFullYear());
@@ -45,7 +57,7 @@ function Library(props) {
 		<div className="libraryContainer">
 			<Navbar booksRef={booksCollectionRef} getBookList={getBookList} />
 			<div className="library">
-				<h1 className="library__books-hello">Hi {myName}!</h1>
+				<h1 className="library__books-hello">Hi {name}!</h1>
 
 				<div className="bookshelf">
 					<div className="bookshelf__books">
