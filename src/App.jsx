@@ -2,10 +2,8 @@ import "./App.scss";
 import Home from "./pages/Home";
 import Library from "./pages/Library";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import { GoogleAuthProvider } from "firebase/auth";
 
 function App() {
-	const googleProvider = new GoogleAuthProvider();
 
 	return (
 		<div className="app">
