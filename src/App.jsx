@@ -3,10 +3,8 @@ import Home from "./pages/Home";
 import Library from "./pages/Library";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import { useState } from "react";
-import { GoogleAuthProvider } from "firebase/auth";
 
 function App() {
-	const googleProvider = new GoogleAuthProvider();
 	const [firstName, setFirstName] = useState("");
 
 	const handleFirstNameChange = (event) => {

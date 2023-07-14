@@ -31,7 +31,7 @@ function Library(props) {
 	useEffect(() => {
 		getBookList();
 		setMyName(props.firstName);
-	}, []);
+	}, [props.firstName, getBookList]);
 
 	useEffect(() => {
 		setCurrentYear(new Date().getFullYear());
