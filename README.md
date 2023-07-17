@@ -5,6 +5,8 @@
 </h1>
 
 <h4 align="center">Your digital library</h4>
+<p align="center">Collect all your finished books</p>
+<h4 align="center"> <a href="https://nikislibrary.netlify.app/" target="_blank">Click to see the project</a> </h4>
 <h4 align="center">
 <img src="https://github.com/NNikiforuk/myLibrary/assets/104830490/61ce6122-9160-4a65-87cc-e5128eb2ba1a" width="200" height="450"/>
 <img src="https://github.com/NNikiforuk/myLibrary/assets/104830490/ce2f4e9e-8105-487f-a448-594e4316790f" width="200" height="450"/>
@@ -31,19 +33,13 @@
 
   
 ## How To Use
+This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
-To clone and run this application, you'll need [Git](https://git-scm.com) and [Node.js](https://nodejs.org/en/download/) (which comes with [npm](http://npmjs.com)) installed on your computer. From your command line:
+## Available Scripts
 
-```bash
-# Clone this repository
-$ git clone https://github.com/NNikiforuk/mylibrary
+In the project directory, you can run:
 
-# Go into the repository
-$ cd lookup
+### `npm start`
 
-# Install dependencies
-$ npm install
-
-# Run the app
-$ npm start
-```
+Runs the app in the development mode.\
+Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
