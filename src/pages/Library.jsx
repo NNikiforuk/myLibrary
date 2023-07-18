@@ -3,7 +3,7 @@ import Navbar from "../components/Navbar";
 import "../styles/Library.scss";
 import { useEffect, useState } from "react";
 import { database } from "../config/firebase";
-import { getDocs, collection } from "firebase/firestore";
+import { getDocs, collection, query, where } from "firebase/firestore";
 import NewBook from "../components/NewBook";
 import Book from "../components/Book";
 import Cover from "../components/Cover";
@@ -15,14 +15,16 @@ function Library() {
 	const booksCollectionRef = collection(database, "books");
 	const [currentYear, setCurrentYear] = useState(0);
 	const [name, setName] = useState("");
+	const [currentUser, setCurrentUser] = useState("");
 
 	const auth = getAuth();
 
 	useEffect(
 		() => {
 			const unsubscribe = auth.onAuthStateChanged((user) => {
-				if (user.displayName) {
+				if (user) {
 					setName(user.displayName.split(" ")[0]);
+					setCurrentUser(user.uid)
 				}
 			});
 
@@ -34,7 +36,8 @@ function Library() {
 
 	const getBookList = async () => {
 		try {
-			const data = await getDocs(booksCollectionRef);
+			const currentUserBooks = query(booksCollectionRef, where("userId", "==", currentUser))
+			const data = await getDocs(currentUserBooks);
 			const filteredData = data.docs.map((doc) => ({
 				...doc.data(),
 				id: doc.id,
@@ -50,7 +53,7 @@ function Library() {
 			getBookList();
 		},
 		// eslint-disable-next-line
-		[]
+		[currentUser]
 	);
 
 	useEffect(() => {
