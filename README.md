@@ -15,9 +15,9 @@
 <img src="https://github.com/NNikiforuk/myLibrary/assets/104830490/06f2cd44-178d-4945-9263-df8222598aa6" width="644"/>
 <img src="https://github.com/NNikiforuk/myLibrary/assets/104830490/56378574-ec21-43d0-81d6-1e8a2a4b7396" width="644"/>
 
+![converted](https://github.com/user-attachments/assets/221b61fa-09b7-486e-a4a8-afc1d0bfe902)
 
-![](https://github.com/user-attachments/assets/34a4ac66-38ff-4687-a186-761c584d9712)
-![mylibrary](https://github.com/user-attachments/assets/0652fdf9-4023-4650-8b36-2921807684b3)
+
 
 
 
