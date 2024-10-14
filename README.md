@@ -1,57 +1,18 @@
 <h1 align="center">
   <br>
-  <img src="src/assets/logo.PNG" alt="application logo" width="150"></a>
+  <p>myLibrary</p>
+<h4 align="center"> <a href="https://nikislibrary.netlify.app/" target="_blank">Click to see the project</a></h4>
+  <h4 align="center">Collect your finished books on the shelf</h4>
   <br>
+  <h4 align="center">
+   ![mylibrary](https://github.com/user-attachments/assets/06ffd6dc-c9cb-4d5f-959c-fce0a5fede98)
+    </h4>
 </h1>
-
-<h4 align="center">Your digital library</h4>
-<p align="center">Collect all your finished books</p>
-<h4 align="center"> <a href="https://nikislibrary.netlify.app/" target="_blank">Click to see the project</a> </h4>
-<h4 align="center">
-<img src="https://github.com/NNikiforuk/myLibrary/assets/104830490/61ce6122-9160-4a65-87cc-e5128eb2ba1a" width="200" height="450"/>
-<img src="https://github.com/NNikiforuk/myLibrary/assets/104830490/ce2f4e9e-8105-487f-a448-594e4316790f" width="200" height="450"/>
-
-
-<img src="https://github.com/NNikiforuk/myLibrary/assets/104830490/06f2cd44-178d-4945-9263-df8222598aa6" width="644"/>
-<img src="https://github.com/NNikiforuk/myLibrary/assets/104830490/56378574-ec21-43d0-81d6-1e8a2a4b7396" width="644"/>
-
-
-
-![mylibrary](https://github.com/user-attachments/assets/0a1121ff-479c-46f3-83b1-eac5ef71fbb3)
-
-
-
-
-
-
-
-
-</h4>
-
-
-
-
-
+ 
 ## Key Features
 
-* Made in React.js
-* Possibility of register/login (Firebase)
-* CRUD for read books
-* Motivation system due to quantity of books on the shelf
-* RWD
-* Styled in SCSS, BEM
-* Icons from Font awesome
+* Made in: React
+* Register/login system: Firebase
+* Styled in SCSS, BEM, icons from Font awesome
+* Responsive, mobile-first approach
 
-
-  
-## How To Use
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
-
-## Available Scripts
-
-In the project directory, you can run:
-
-### `npm start`
-
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
