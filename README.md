@@ -5,10 +5,9 @@
   <h4 align="center">Collect your finished books on the shelf</h4>
   <br>
   <h4 align="center">
-   ![mylibrary](https://github.com/user-attachments/assets/06ffd6dc-c9cb-4d5f-959c-fce0a5fede98)
+   ![](https://github.com/user-attachments/assets/06ffd6dc-c9cb-4d5f-959c-fce0a5fede98)
     </h4>
 </h1>
- ![mylibrary](https://github.com/user-attachments/assets/115b256d-2a83-4a3c-8d29-2fc0defbf9aa)
 
 ## Key Features
 
